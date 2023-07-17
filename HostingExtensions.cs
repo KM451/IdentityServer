@@ -1,3 +1,4 @@
+using Duende.IdentityServer;
 using Duende.IdentityServer.Services;
 using IdentityServer.Data;
 using IdentityServer.Models;
@@ -18,11 +19,11 @@ internal static class HostingExtensions
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
         //options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection2")));
-
+            
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
-      
+
 
         builder.Services.AddTransient<IProfileService, ProfileService>();
 
