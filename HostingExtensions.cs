@@ -1,4 +1,3 @@
-using Duende.IdentityServer.Services;
 using IdentityServer.Data;
 using IdentityServer.Models;
 using IdentityServer.Services;
@@ -20,8 +19,6 @@ internal static class HostingExtensions
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
-
-        builder.Services.AddTransient<IProfileService, ProfileService>();
 
         builder.Services
             .AddIdentityServer(options =>
