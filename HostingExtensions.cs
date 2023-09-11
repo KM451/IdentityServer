@@ -40,7 +40,6 @@ internal static class HostingExtensions
 
         builder.Services.AddAuthentication();
 
-        builder.Services.AddDatabaseDeveloperPageExceptionFilter();
         return builder.Build();
     }
     
