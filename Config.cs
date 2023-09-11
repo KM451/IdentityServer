@@ -10,14 +10,12 @@ public static class Config
         {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
-            new IdentityResource(name: "user", userClaims: new[] {JwtClaimTypes.Email})
+            new IdentityResource("user", new[] {JwtClaimTypes.Email, JwtClaimTypes.WebSite})
         };
 
     public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
         {
-            new ApiScope("scope1"),
-            new ApiScope("scope2"),
             new ApiScope("api1")
         };
 

@@ -18,7 +18,7 @@ namespace IdentityServer.Services
             var user = await _userManager.GetUserAsync(context.Subject);
             var claims = new List<Claim>
             {
-                new Claim("Email", user.Email)
+                new Claim("Email", user.Email), 
             };
 
             context.IssuedClaims.AddRange(claims);

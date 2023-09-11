@@ -11,6 +11,7 @@ Log.Information("Starting up");
 
 try
 {
+
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Host.UseSerilog((ctx, lc) => lc
@@ -34,7 +35,11 @@ try
         return;
     }
 
+ 
+
     app.Run();
+
+
 }
 catch (Exception ex) when (
                             // https://github.com/dotnet/runtime/issues/60600
