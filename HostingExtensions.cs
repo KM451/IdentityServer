@@ -1,4 +1,3 @@
-using Duende.IdentityServer.Services;
 using IdentityServer.Data;
 using IdentityServer.Models;
 using IdentityServer.Services;
@@ -15,14 +14,11 @@ internal static class HostingExtensions
         builder.Services.AddRazorPages();
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        //options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection2")));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
-
-        builder.Services.AddTransient<IProfileService, ProfileService>();
 
         builder.Services
             .AddIdentityServer(options =>
@@ -44,7 +40,6 @@ internal static class HostingExtensions
 
         builder.Services.AddAuthentication();
 
-        builder.Services.AddDatabaseDeveloperPageExceptionFilter();
         return builder.Build();
     }
     

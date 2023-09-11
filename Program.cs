@@ -1,4 +1,6 @@
-﻿using IdentityServer;
+﻿using Duende.IdentityServer.Services;
+using IdentityServer;
+using IdentityServer.Services;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -15,6 +17,8 @@ try
         .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}")
         .Enrich.FromLogContext()
         .ReadFrom.Configuration(ctx.Configuration));
+
+    builder.Services.AddTransient<IProfileService, ProfileService>();
 
     var app = builder
         .ConfigureServices()
