@@ -10,7 +10,14 @@ public static class Config
         {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
-            new IdentityResource("user", new[] {JwtClaimTypes.Email, JwtClaimTypes.WebSite})
+            new IdentityResource("user", new[]
+            {
+                //JwtClaimTypes.Id,
+                //JwtClaimTypes.ClientId,
+                //JwtClaimTypes.Name,
+                //JwtClaimTypes.FamilyName,
+                JwtClaimTypes.Email
+            })
         };
 
     public static IEnumerable<ApiScope> ApiScopes =>
@@ -28,7 +35,7 @@ public static class Config
                    ClientName = "Client for Postman user",
                    AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
                    ClientSecrets = {new Secret("secret".Sha256())},
-                   AllowedScopes = {"api1", "user"},
+                   AllowedScopes = {"api1"},
                    AlwaysSendClientClaims = true,
                    AlwaysIncludeUserClaimsInIdToken = true,
                    AllowAccessTokensViaBrowser = true,
@@ -40,7 +47,7 @@ public static class Config
                    ClientName = "Client for Swagger user",
                    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
                    ClientSecrets = {new Secret("secret".Sha256())},
-                   AllowedScopes = {"api1", "user"},
+                   AllowedScopes = {"api1"},
                    AlwaysSendClientClaims = true,
                    AlwaysIncludeUserClaimsInIdToken = true,
                    AllowAccessTokensViaBrowser = true,
