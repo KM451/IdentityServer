@@ -1,5 +1,4 @@
 ﻿using Duende.IdentityServer.Models;
-using IdentityModel;
 
 namespace IdentityServer;
 
@@ -8,18 +7,10 @@ public static class Config
     public static IEnumerable<IdentityResource> IdentityResources =>
         new List<IdentityResource>
         {
-            new IdentityResources.OpenId(),
-            new IdentityResources.Profile(),
-            new IdentityResource("user", new[]
-            {
-                //JwtClaimTypes.Id,
-                //JwtClaimTypes.ClientId,
-                //JwtClaimTypes.Name,
-                //JwtClaimTypes.FamilyName,
-                JwtClaimTypes.Email
-            })
+            new IdentityResources.OpenId()
         };
 
+   
     public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
         {

@@ -20,8 +20,7 @@ internal static class HostingExtensions
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
-        builder.Services
-            .AddIdentityServer(options =>
+        builder.Services.AddIdentityServer(options =>
             {
                 options.Events.RaiseErrorEvents = true;
                 options.Events.RaiseInformationEvents = true;
@@ -60,6 +59,8 @@ internal static class HostingExtensions
         app.MapDefaultControllerRoute();
         app.MapRazorPages().RequireAuthorization();
         
+        
         return app;
     }
+   
 }
