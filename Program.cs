@@ -1,6 +1,8 @@
 ﻿using Duende.IdentityServer.Services;
 using IdentityServer;
+using IdentityServer.Models;
 using IdentityServer.Services;
+using Microsoft.AspNetCore.Identity;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -35,8 +37,7 @@ try
         return;
     }
 
- 
-
+    
     app.Run();
 
 

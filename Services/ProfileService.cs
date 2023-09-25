@@ -1,6 +1,7 @@
 ﻿using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
+using IdentityModel;
 using IdentityServer.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
@@ -23,7 +24,7 @@ namespace IdentityServer.Services
         {
             var sub = context.Subject.GetSubjectId();
             var user = await _userManager.FindByIdAsync(sub);
-
+            
             var claims = new List<Claim>
             {
                 new Claim("Email", user.Email),
